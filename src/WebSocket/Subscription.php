@@ -6,9 +6,9 @@ namespace Mammatus\Http\Server\Annotations\WebSocket;
  * @Annotation
  * @Target({"CLASS"})
  */
-final class Rpc
+final class Subscription
 {
-    private string $rpc;
+    private string $topic;
 
     public string $command;
 
@@ -17,13 +17,13 @@ final class Rpc
      */
     public function __construct(array $values)
     {
-        $this->rpc = $values['rpc'] ?? null;
+        $this->topic = $values['topic'] ?? null;
         $this->command = $values['command'] ?? null;
     }
 
-    public function rpc(): string
+    public function topic(): string
     {
-        return $this->rpc;
+        return $this->topic;
     }
 
     public function command(): string
