@@ -8,4 +8,18 @@ namespace Mammatus\Http\Server\Annotations\WebSocket;
  */
 final class Broadcast
 {
+    private string $realm;
+
+    /**
+     * @param mixed[] $values
+     */
+    public function __construct(array $values)
+    {
+        $this->realm = $values['realm'] ?? null;
+    }
+
+    public function realm(): string
+    {
+        return $this->realm;
+    }
 }
