@@ -8,8 +8,9 @@ namespace Mammatus\Http\Server\Annotations\WebSocket;
  */
 final class Rpc
 {
+    private string $realm;
+    private string $bus;
     private string $rpc;
-
     public string $command;
 
     /**
@@ -17,8 +18,20 @@ final class Rpc
      */
     public function __construct(array $values)
     {
+        $this->realm = $values['realm'] ?? null;
+        $this->bus = $values['bus'] ?? null;
         $this->rpc = $values['rpc'] ?? null;
         $this->command = $values['command'] ?? null;
+    }
+
+    public function realm(): string
+    {
+        return $this->realm;
+    }
+
+    public function bus(): string
+    {
+        return $this->bus;
     }
 
     public function rpc(): string
