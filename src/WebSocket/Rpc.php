@@ -8,10 +8,11 @@ namespace Mammatus\Http\Server\Annotations\WebSocket;
  */
 final class Rpc
 {
-    private string $realm;
-    private string $bus;
-    private string $rpc;
-    public string $command;
+    private ?string $realm;
+    private ?string $bus;
+    private ?string $rpc;
+    private ?string $command;
+    private ?string $transformer;
 
     /**
      * @param mixed[] $values
@@ -22,25 +23,31 @@ final class Rpc
         $this->bus = $values['bus'] ?? null;
         $this->rpc = $values['rpc'] ?? null;
         $this->command = $values['command'] ?? null;
+        $this->transformer = $values['transformer'] ?? null;
     }
 
-    public function realm(): string
+    public function realm(): ?string
     {
         return $this->realm;
     }
 
-    public function bus(): string
+    public function bus(): ?string
     {
         return $this->bus;
     }
 
-    public function rpc(): string
+    public function rpc(): ?string
     {
         return $this->rpc;
     }
 
-    public function command(): string
+    public function command(): ?string
     {
         return $this->command;
+    }
+
+    public function transformer(): ?string
+    {
+        return $this->transformer;
     }
 }
