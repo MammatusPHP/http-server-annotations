@@ -3,11 +3,11 @@
     "description": "HTTP Server annotations",
     "license": "MIT",
     "require": {
-        "php": "^7.4"
+        "php": "^8.1"
     },
     "config": {
         "platform": {
-            "php": "7.4"
+            "php": "8.1.0"
         },
         "sort-packages": true
     },
